@@ -6,7 +6,7 @@ class P1{
 	public:
 	string name; 
 	int turn_total;
-	int sum = 201;
+	int sum = 20;
 	
 	int get_score();
 	int total_score(int turn_score,int compiled);
@@ -35,7 +35,7 @@ int main(){
 	switch(choice){
 		
 		case 1 :
-		while(player1.sum > 0 && player2.sum > 0){
+		while((player1.sum > 0) && (player2.sum > 0)){
 			cout << "enter " << player1.name << "'s scores" << endl;
 			
 			 player1.turn_total = player1.get_score();
