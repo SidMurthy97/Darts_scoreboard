@@ -10,6 +10,7 @@ class P1{
 	
 	int get_score();
 	int total_score(int turn_score,int compiled);
+	void checkout(int score);
 };
 
 // CHECK SUM FUNCTION 
@@ -34,7 +35,7 @@ int main(){
 	switch(choice){
 		
 		case 1 :
-		while(player1.sum >0 && player2.sum > 0){
+		while(player1.sum > 0 && player2.sum > 0){
 			cout << "enter " << player1.name << "'s scores" << endl;
 			
 			 player1.turn_total = player1.get_score();
@@ -47,7 +48,9 @@ int main(){
 			 
 			 cout << "Scores: " << endl;
 			 cout << player1.name << ": " <<player1.sum << endl;
+			 player1.checkout(player1.sum);
 			 cout << player2.name << ": " <<player2.sum << endl;
+			 player2.checkout(player2.sum);
 		}
 			 
 		case 2 :
@@ -65,7 +68,6 @@ int main(){
 			 cout << "Scores: " << endl;
 			 cout << player2.name << ": " <<player2.sum << endl;
 			 cout << player1.name << ": " <<player1.sum << endl;
-			 
 		
 		}
 			 
@@ -98,7 +100,11 @@ int P1::total_score(int turn_score, int compiled){
 	return compiled;
 }
 
-
+void P1::checkout(int score){
+	if(score < 100 && (score%2) ==0){
+		cout << (score)/2 << " to checkout" << endl; 
+	}
+}
 
 
 
