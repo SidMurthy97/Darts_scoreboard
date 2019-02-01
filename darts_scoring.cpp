@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-class P1{
+class P1{ // class to keep player scores seperate 
 	public:
 	string name; 
 	int turn_total;
@@ -16,7 +16,7 @@ class P1{
 // CHECK SUM FUNCTION 
 
 int main(){
-	P1 player1;
+	P1 player1; //objects 
 	P1 player2;
 	int choice, compiled;
 	string raw_score;
@@ -35,11 +35,11 @@ int main(){
 	switch(choice){
 		
 		case 1 :
-		while((player1.sum > 0) && (player2.sum > 0)){
+		while((player1.sum > 0) && (player2.sum > 0)){ //end condition 
 			cout << "enter " << player1.name << "'s scores" << endl;
 			
 			 player1.turn_total = player1.get_score();
-			 player1.sum = player1.total_score(player1.turn_total,player1.sum);
+			 player1.sum = player1.total_score(player1.turn_total,player1.sum); // function to calculate rolling sum 
 			 
 			cout << "enter " << player2.name << "'s scores" << endl;
 		
@@ -48,12 +48,12 @@ int main(){
 			 
 			 cout << "Scores: " << endl;
 			 cout << player1.name << ": " <<player1.sum << endl;
-			 player1.checkout(player1.sum);
+			 player1.checkout(player1.sum); //checkout condition 
 			 cout << player2.name << ": " <<player2.sum << endl;
 			 player2.checkout(player2.sum);
 		}
 			 
-		case 2 :
+		case 2 : //if player 2 goes first 
 		while(player1.sum < 201 && player2.sum < 201){
 			cout << "enter " << player2.name << "'s scores" << endl;
 		
@@ -76,7 +76,7 @@ int main(){
 	
 }
 
-int P1::get_score(){
+int P1::get_score(){ //split input string into 3 integer scores 
 		int score;
 		int first_try,second_try,third_try;
 		string first_raw,second_raw,third_raw;
